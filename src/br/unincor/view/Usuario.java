@@ -59,7 +59,13 @@ public class Usuario {
 	}
 
 	public Long recebeLong(String texto) {
-		return Long.parseLong(JOptionPane.showInputDialog(texto));
+		try {
+			Long resposta = Long.parseLong(JOptionPane.showInputDialog(texto));
+			return resposta;
+		} catch (Exception e) {
+			exibeMsgErro("Erro na entrada do usuário");
+		}
+		return null;
 	}
 
 	public Double recebeDouble(String texto) {
